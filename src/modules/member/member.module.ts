@@ -1,6 +1,6 @@
 import { Global, Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { MembersController } from './member.controller';
+import { MemberController } from './member.controller';
 import { MemberService } from './member.service';
 import { Member, MemberSchema } from './schemas/member.schema';
 
@@ -9,7 +9,7 @@ import { Member, MemberSchema } from './schemas/member.schema';
     imports: [
         MongooseModule.forFeature([{ name: Member.name, schema: MemberSchema }]),
     ],
-    controllers: [MembersController],
+    controllers: [MemberController],
     providers: [MemberService],
     exports: [MemberService],
 })

@@ -5,7 +5,7 @@ import { Member } from './schemas/member.schema';
 
 @ApiTags('member')
 @Controller('member')
-export class MembersController {
+export class MemberController {
     constructor(private memberService: MemberService) { }
 
     @Get()

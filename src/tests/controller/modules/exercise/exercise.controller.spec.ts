@@ -7,7 +7,7 @@ const testExercise1Name = 'Test Exercise 1';
 const testExercise1Description = 'Test Exercise 1';
 const testExercise1Type = 1;
 
-describe('ExerciseService', () => {
+describe('ExerciseController', () => {
   let service: ExerciseService;
   let controller: ExerciseController;
 
@@ -85,7 +85,7 @@ describe('ExerciseService', () => {
     });
   });
 
-  describe('deleteCat', () => {
+  describe('deleteExercise', () => {
     it('should return that it deleted a cat', () => {
       expect(controller.deleteOne('a uuid that exists')).resolves.toEqual({
         name: 'Test Exercise 1',
