@@ -8,7 +8,7 @@ import { WorkoutModule } from './modules/workout/workout.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost/momentum'),
+    MongooseModule.forRoot('mongodb://localhost/momentum', { useCreateIndex: true }),
     ExerciseModule,
     WorkoutModule,
     MemberModule
