@@ -12,6 +12,7 @@ import {
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { ExerciseService } from './exercise.service';
 import { Exercise } from './schemas/exercise.schema';
+import { ExerciseDTO } from './exercise.dto';
 
 @ApiTags('exercise')
 @Controller('exercise')
@@ -44,7 +45,7 @@ export class ExerciseController {
     }
 
     @Post()
-    update(@Body() exercise: Exercise): Promise<Exercise> {
+    update(@Body() exercise: ExerciseDTO): Promise<Exercise> {
         return this.exerciseService.update(exercise);
     }
 }

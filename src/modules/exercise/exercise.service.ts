@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Exercise } from './schemas/exercise.schema';
+import { ExerciseDTO } from './exercise.dto';
 
 @Injectable()
 export class ExerciseService {
@@ -25,7 +26,7 @@ export class ExerciseService {
         return this.exerciseModel.create(exercise);
     }
 
-    async update(exercise: Exercise): Promise<Exercise> {
+    async update(exercise: ExerciseDTO): Promise<Exercise> {
         return this.exerciseModel.findByIdAndUpdate(exercise._id, exercise);
     }
 }

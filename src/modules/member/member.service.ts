@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Member } from './schemas/member.schema';
+import { MemberDto } from './member.dto';
 
 @Injectable()
 export class MemberService {
@@ -23,14 +24,14 @@ export class MemberService {
         return this.memberModel.findByIdAndDelete(memberId);
     }
 
-    async create(member: any): Promise<Member> {
+    async create(member: MemberDto): Promise<Member> {
         return this.memberModel.create({
             firstName: member.firstName,
             lastName: member.lastName,
             dateOfBirth: new Date(member.dateOfBirth),
             email: member.email,
             street: member.street,
-            houseNr: member.houseNumber,
+            houseNr: member.houseNr,
             zip: member.zip,
             state: member.state,
             gender: member.gender,

@@ -2,6 +2,7 @@ import { Body, Controller, Delete, Get, Param, Put } from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { MemberService } from './member.service';
 import { Member } from './schemas/member.schema';
+import { MemberDto } from './member.dto';
 
 @ApiTags('member')
 @Controller('member')
@@ -29,7 +30,7 @@ export class MemberController {
     }
 
     @Put()
-    create(@Body() member: any): Promise<Member> {
+    create(@Body() member: MemberDto): Promise<Member> {
         return this.memberService.create(member);
     }
 }
