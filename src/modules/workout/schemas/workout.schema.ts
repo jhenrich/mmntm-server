@@ -12,8 +12,8 @@ export class Workout extends Document {
   @Prop()
   type: string;
 
-  @Prop()
-  rounds: any;
+  // @Prop()
+  // rounds: any;
 
   @Prop()
   timeCap?: number;
