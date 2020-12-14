@@ -1,10 +1,17 @@
 import {
+    Body,
     Controller,
 
-    Get
+    Delete,
+
+    Get,
+    Param,
+    Post,
+    Put
 } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { ExerciseService } from './exercise.service';
+import { Exercise } from './schemas/exercise.schema';
 
 @ApiTags('exercise')
 @Controller('exercise')
@@ -14,5 +21,30 @@ export class ExerciseController {
     @Get()
     findAll(): Promise<any> {
         return this.exerciseService.findAll();
+    }
+
+    @Get(':id')
+    @ApiResponse({
+        status: 200,
+        description: 'The found exercise',
+        type: Exercise,
+    })
+    findOne(@Param('id') id: string): Promise<Exercise> {
+        return this.exerciseService.findOne(id);
+    }
+
+    @Delete(':id')
+    deleteOne(@Param('id') id: string): Promise<Exercise> {
+        return this.exerciseService.deleteOne(id);
+    }
+
+    @Put()
+    create(@Body() exercise: any): Promise<Exercise> {
+        return this.exerciseService.create(exercise);
+    }
+
+    @Post()
+    update(@Body() exercise: Exercise): Promise<Exercise> {
+        return this.exerciseService.update(exercise);
     }
 }

@@ -12,4 +12,20 @@ export class ExerciseService {
     async findAll(): Promise<Exercise[]> {
         return this.exerciseModel.find().exec();
     }
+
+    async findOne(exerciseId: string): Promise<Exercise> {
+        return this.exerciseModel.findById(exerciseId);
+    }
+
+    async deleteOne(exerciseId: string): Promise<Exercise> {
+        return this.exerciseModel.findByIdAndDelete(exerciseId);
+    }
+
+    async create(exercise: any): Promise<Exercise> {
+        return this.exerciseModel.create(exercise);
+    }
+
+    async update(exercise: Exercise): Promise<Exercise> {
+        return this.exerciseModel.findByIdAndUpdate(exercise._id, exercise);
+    }
 }
